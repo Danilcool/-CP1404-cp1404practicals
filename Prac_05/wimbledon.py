@@ -1,6 +1,11 @@
+"""
+Word Occurrences
+Estimate: 25 minutes
+Actual:   20 minutes
+"""
+
 player_dict = {}
 country_list = []
-
 COUNT_RAISE = 1
 
 def main():
@@ -41,8 +46,5 @@ def final_display():
     print(f"These {len(country_list)} countries have won Wimbledon: ")
     for country in sorted(country_list):
         print(country,end=', ')
-
-
-
 
 main()
