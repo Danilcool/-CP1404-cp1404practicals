@@ -23,10 +23,9 @@ def main():
             print(f"{guitar_name} ({guitar_year}) : ${guitar_cost} added.")
             guitars_list.append(Guitar(guitar_name, guitar_year, guitar_cost))
             guitar_name = input('Name:')
+
         except ValueError:
             print('Year and Cost must be numerical')
-
-
 
     for i, guitar in enumerate(guitars_list, 0):
         if guitar.is_vintage() == True:
