@@ -8,8 +8,8 @@ player_dict = {}
 country_list = []
 COUNT_RAISE = 1
 
-def main():
 
+def main():
     with open("wimbledon.csv", "r", encoding="utf-8-sig") as in_file:
         for line in in_file.readlines():
             line_components = line.split(',')
@@ -34,8 +34,6 @@ def find_country(line_components):
         country_list.append(country)
 
 
-
-
 def final_display():
     player_dict.pop("Champion")
 
@@ -45,6 +43,7 @@ def final_display():
     country_list.pop(0)
     print(f"These {len(country_list)} countries have won Wimbledon: ")
     for country in sorted(country_list):
-        print(country,end=', ')
+        print(country, end=', ')
+
 
 main()
