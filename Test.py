@@ -1,2 +1,11 @@
-d = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
-print([v + 1 for v in d.values() if v < 3])
+class Thing:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+
+    def change(self, b):
+        self.a += b
+
+it = Thing(5, 6)
+it.change(2)
+print(it.a, it.b)

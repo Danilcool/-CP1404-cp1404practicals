@@ -1,3 +1,8 @@
+"""
+Assignment 1 for CP1404/CP5632, IT@JCU
+By: Danil Ovcharenko
+"""
+
 import csv
 import random
 
@@ -30,10 +35,13 @@ def load_places():
 def display_places(places):
     max_name_length = max(len(place[0]) for place in places)
     max_country_length = max(len(place[1]) for place in places)
-    print(f"{'Place':<{max_name_length}}{'Country':<{max_country_length}}{'Visited':>10}")
+    count = 1
     for place in places:
-        visited = "Yes" if place[2] == "visited" else "No"
-        print(f"{place[0]:<{max_name_length}}{place[1]:<{max_country_length}}{visited:>10}")
+        visited = "*" if place[2] == "visited" else ""
+        print(f"{visited}{count}. {place[0]:<{max_name_length}} in {place[1]:<{max_country_length}}")
+        count += 1
+    print(f"{len(places)} places. You still want to visit {places.count(('','','not visited'))} places.\nMenu:")
+
 
 # Function to recommend a place to visit
 def recommend_place(places):
@@ -41,7 +49,8 @@ def recommend_place(places):
     unvisited_places = [place for place in places if place[3] == "n"]
     if len(unvisited_places) >= 1:
         random_place = random.choice(unvisited_places)
-        print(f"Recommended Place: {random_place[0]} in {random_place[1]}")
+        print("Not sure where to visit next?")
+        print(f"How about... {random_place[0]} in {random_place[1]}?")
     else:
         print("No unvisited places.")
 
@@ -60,11 +69,14 @@ def mark_visited(places):
         print("Unvisited Places:")
         display_places(unvisited_places)
         index = input("Enter index of place to mark as visited: ")
+
         if index.isdigit() and int(index) in range(1, len(unvisited_places) + 1):
             places[int(index) - 1][2] = "visited"
             print("Place marked as visited successfully.")
+        if index == 0:
+            print("Number must be > 0")
         else:
-            print("Invalid index.")
+            print("Invalid place number")
     else:
         print("No unvisited places.")
 
@@ -82,18 +94,19 @@ def main():
     places = load_places()
     while True:
         display_menu()
-        choice = input("Enter your choice: ")
-        if choice == "1" or choice == 'L':
+        choice = input("Enter your choice: ").capitalize()
+        if choice == 'L':
             display_places(places)
-        elif choice == "2" or choice == "R":
+        elif choice == "R":
             recommend_place(places)
-        elif choice == "3" or choice == 'A':
+        elif choice == 'A':
             add_place(places)
-        elif choice == "4" or choice == "M":
+        elif choice == "M":
             mark_visited(places)
-        elif choice == "5" or choice == "Q":
+        elif choice == "Q":
             save_places(places)
             print("Thank you for")
+            break
         else:
             print('Invalid Input')
 main()
