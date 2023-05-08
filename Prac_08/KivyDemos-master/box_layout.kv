@@ -1,0 +1,31 @@
+BoxLayout:
+    orientation: 'vertical'
+
+    Button:
+        text: 'Clear'
+        on_press: app.clear()
+
+    TextInput:
+        id: clear_function
+        text: ''
+
+    Button:
+        text: 'two'
+        on_press: app.input_name()
+
+    TextInput:
+        id: input_name
+        text: ''
+
+    Button:
+        text: "Greet"
+        on_press: app.handle_pressed()
+
+    Label:
+        id: my_label
+        text: "Greet"
+        font_size: 42
+
+    Label:
+        id: output_label
+        text: "two"
