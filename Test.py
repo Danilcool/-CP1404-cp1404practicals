@@ -1,11 +1,3 @@
-class Thing:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
-
-    def change(self, b):
-        self.a += b
-
-it = Thing(5, 6)
-it.change(2)
-print(it.a, it.b)
+a = {1, 2, 3, 4}
+b = {2, 4, 6, 8}
+print(a ^ b)
