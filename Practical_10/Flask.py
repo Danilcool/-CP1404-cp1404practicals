@@ -1,4 +1,5 @@
 from flask import Flask
+from quoters import Quote
 
 app = Flask(__name__)
 
@@ -17,5 +18,7 @@ def convert_celsius_to_fahrenheit(celsius):
     except ValueError:
         return "Invalid input. Please enter a valid temperature in Celsius."
 
+def quote():
+    return Quote.print()
 if __name__ == '__main__':
     app.run()
