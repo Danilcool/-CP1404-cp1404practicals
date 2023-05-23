@@ -1,0 +1,15 @@
+body {
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+    margin: 0;
+    background-color: #F2F2F2;
+}
+
+#nav, #footer {
+    background-color: #eee;
+    padding: 1em;
+    color: #FF0000;
+}
+
+#content {
+    margin-left: 3em;
+}
